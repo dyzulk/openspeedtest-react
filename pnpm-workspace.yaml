@@ -2,3 +2,8 @@ allowBuilds:
   esbuild: true
   sharp: true
   workerd: true
+minimumReleaseAgeExclude:
+  - '@react-router/cloudflare@8.1.0'
+  - '@react-router/dev@8.1.0'
+  - '@react-router/node@8.1.0'
+  - react-router@8.1.0

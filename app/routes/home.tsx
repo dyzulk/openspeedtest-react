@@ -72,8 +72,7 @@ export default function Home() {
 
   // 3. Inisialisasi Jembatan / Adapter DOM setelah SVG terinjeksi
   useEffect(() => {
-    if (!svgMarkup || !svgContainerRef.current) return;
-
+    if (state.stage === "loading" || !svgMarkup || !svgContainerRef.current) return;
     const svgElement = svgContainerRef.current.querySelector("svg");
     if (svgElement) {
       const adapter = new SpeedTestDOMAdapter(svgElement);
@@ -83,7 +82,7 @@ export default function Home() {
       adapter.bindEvents({
         startTest,
         toggleTheme,
-        toggleIPVisibility,
+        toggleIPVisibility
       });
 
       // Pemicu inisialisasi visual stage pertama
@@ -92,7 +91,7 @@ export default function Home() {
       adapter.updateSpeed(state.currentSpeed, state.stage, state.gaugeOffset);
       adapter.updateProgress(state.progress);
     }
-  }, [svgMarkup]);
+  }, [svgMarkup, state.stage]);
 
   // 4. Sinkronisasi state engine ke DOM SVG melalui Adapter
   useEffect(() => {
@@ -117,10 +116,10 @@ export default function Home() {
         </div>
       ) : (
         /* B. Area Injeksi SVG Kontainer */
-        <div className="flex flex-col items-center justify-center flex-grow p-4">
+        <div className="flex flex-col items-center justify-center flex-grow">
           <div
             ref={svgContainerRef}
-            className="w-full max-w-[586px] aspect-[586/363] [&>svg]:w-full [&>svg]:h-full [&>svg]:overflow-hidden [&>svg]:block"
+            className="w-full h-full [&>svg]:w-full [&>svg]:h-full [&>svg]:overflow-hidden [&>svg]:block"
             dangerouslySetInnerHTML={{ __html: svgMarkup }}
           />
         </div>
