@@ -288,9 +288,9 @@ export function SpeedTestUI({
               <svg className="hidden md:block w-full h-full" viewBox="0 0 586 346">
                 {/* 1. Bagian Pengujian Active / Selesai (UI-Desk) */}
                 <g id="UI-Desk" className={`transition-all duration-1000 ${isTestingOrDone ? "opacity-100 block" : "opacity-0 hidden pointer-events-none"}`}>
-                  <use href="#mainGaugebg" className="stroke-[#e7e7e8] dark:stroke-[#000000] fill-none stroke-[22px] stroke-linecap-round" x="10.28" y="36.11" width="273.94" height="245.39" />
-                  <use href="#mainGaugeBlue" className="stroke-[url(#gradient)] fill-none stroke-[22px] stroke-linecap-round transition-all duration-200" style={{ strokeDashoffset: state.gaugeOffset }} x="10.28" y="36.11" width="273.94" height="245.39" />
-                  <use href="#mainGaugeWhite" className="stroke-white fill-none stroke-[15px] stroke-linecap-round transition-all duration-200" style={{ strokeDashoffset: state.gaugeOffset === 0 ? 1 : state.gaugeOffset + 1 }} x="10.28" y="36.11" width="273.94" height="245.39" />
+                  <use href="#mainGaugebg" className="stroke-[#e7e7e8] dark:stroke-[#000000] fill-none stroke-[22px] stroke-linecap-round" strokeDasharray="681" x="10.28" y="36.11" width="273.94" height="245.39" />
+                  <use href="#mainGaugeBlue" className="stroke-[url(#gradient)] fill-none stroke-[22px] stroke-linecap-round transition-all duration-200" style={{ strokeDashoffset: state.gaugeOffset }} strokeDasharray="681" x="10.28" y="36.11" width="273.94" height="245.39" />
+                  <use href="#mainGaugeWhite" className="stroke-white fill-none stroke-[15px] stroke-linecap-round transition-all duration-200" style={{ strokeDashoffset: state.gaugeOffset === 0 ? 1 : state.gaugeOffset + 1 }} strokeDasharray="681" x="10.28" y="36.11" width="273.94" height="245.39" />
                   
                   {/* Results Cards Background */}
                   <rect className="fill-[#f2f2f2] dark:fill-black" x="307.4" y="31" width="278.1" height="85.5" rx="5" ry="5" />
@@ -359,7 +359,7 @@ export function SpeedTestUI({
                 {/* 2. Bagian Landing / Tombol Start (intro-Desk) */}
                 <g id="intro-Desk" className={`transition-all duration-1000 ${state.stage === "intro" ? "opacity-100 block" : "opacity-0 hidden pointer-events-none"}`}>
                   <use href="#logo-symbol" x="35" y="140" width="222.8" height="50.22" />
-                  <use href="#mainGaugebg" className="stroke-[#e7e7e8] dark:stroke-black fill-none stroke-[22px] stroke-linecap-round" x="10.28" y="36.11" width="273.94" height="245.39" />
+                  <use href="#mainGaugebg" className="stroke-[#e7e7e8] dark:stroke-black fill-none stroke-[22px] stroke-linecap-round" strokeDasharray="681" x="10.28" y="36.11" width="273.94" height="245.39" />
                   
                   {/* Results cards shadows in landing */}
                   <rect className="fill-[#f2f2f2] dark:fill-black" x="307.4" y="31" width="278.1" height="85.5" rx="5" ry="5" />
@@ -383,9 +383,9 @@ export function SpeedTestUI({
               <svg className="block md:hidden w-full h-full" viewBox="0 0 295.9 363.3">
                 {/* 1. Bagian Pengujian Active / Selesai (UI-Mob) */}
                 <g id="UI-Mob" className={`transition-all duration-1000 ${isTestingOrDone ? "opacity-100 block" : "opacity-0 hidden pointer-events-none"}`}>
-                  <use href="#mainGaugebg" className="stroke-[#e7e7e8] dark:stroke-[#000000] fill-none stroke-[22px] stroke-linecap-round" x="11.18" y="12" width="273.94" height="245.39" />
-                  <use href="#mainGaugeBlue" className="stroke-[url(#gradient)] fill-none stroke-[22px] stroke-linecap-round transition-all duration-200" style={{ strokeDashoffset: state.gaugeOffset }} x="11.18" y="12" width="273.94" height="245.39" />
-                  <use href="#mainGaugeWhite" className="stroke-white fill-none stroke-[15px] stroke-linecap-round transition-all duration-200" style={{ strokeDashoffset: state.gaugeOffset === 0 ? 1 : state.gaugeOffset + 1 }} x="11.18" y="12" width="273.94" height="245.39" />
+                  <use href="#mainGaugebg" className="stroke-[#e7e7e8] dark:stroke-[#000000] fill-none stroke-[22px] stroke-linecap-round" strokeDasharray="681" x="11.18" y="12" width="273.94" height="245.39" />
+                  <use href="#mainGaugeBlue" className="stroke-[url(#gradient)] fill-none stroke-[22px] stroke-linecap-round transition-all duration-200" style={{ strokeDashoffset: state.gaugeOffset }} strokeDasharray="681" x="11.18" y="12" width="273.94" height="245.39" />
+                  <use href="#mainGaugeWhite" className="stroke-white fill-none stroke-[15px] stroke-linecap-round transition-all duration-200" style={{ strokeDashoffset: state.gaugeOffset === 0 ? 1 : state.gaugeOffset + 1 }} strokeDasharray="681" x="11.18" y="12" width="273.94" height="245.39" />
                   
                   {/* Cards mobile */}
                   <rect className="fill-[#f2f2f2] dark:fill-black" x="1" y="297.52" width="88.1" height="65.8" rx="5" ry="5" />
@@ -443,7 +443,7 @@ export function SpeedTestUI({
                 <g id="intro-Mob" className={`transition-all duration-1000 ${state.stage === "intro" ? "opacity-100 block" : "opacity-0 hidden pointer-events-none"}`}>
                   <use href={isDark ? "#light-symbol" : "#dark-symbol"} className="cursor-pointer fill-[#75757a] hover:fill-[#000000] dark:hover:fill-white transition-colors duration-300" onClick={toggleTheme} x="10" y="25" width="30" height="30" />
                   <use href="#logo-symbol" x="38" y="110" width="218.8" height="50.22" />
-                  <use href="#mainGaugebg" className="stroke-[#e7e7e8] dark:stroke-black fill-none stroke-[22px] stroke-linecap-round" x="11.18" y="12" width="273.94" height="245.39" />
+                  <use href="#mainGaugebg" className="stroke-[#e7e7e8] dark:stroke-black fill-none stroke-[22px] stroke-linecap-round" strokeDasharray="681" x="11.18" y="12" width="273.94" height="245.39" />
                   <use href="#playButton" onClick={startTest} x="125" y="280" width="50.2" height="50.2" />
                   <use href="#settings" className="cursor-pointer opacity-10 hover:opacity-100 transition-opacity duration-300 fill-[url(#RadialGradient1)]" onClick={toggleIPVisibility} x="100" y="240" width="100" height="40" />
 
