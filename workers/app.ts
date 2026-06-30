@@ -1,5 +1,5 @@
 /// <reference types="@cloudflare/workers-types" />
-import { createRequestHandler } from "react-router";
+import { createRequestHandler, RouterContextProvider, createContext } from "react-router";
 
 declare global {
   interface CloudflareEnvironment extends Env {}
@@ -7,6 +7,11 @@ declare global {
 
 // You can add your Cloudflare bindings here (KV, D1, etc.)
 interface Env {}
+
+export const cloudflareContext = createContext<{
+  env: Env;
+  ctx: ExecutionContext;
+}>();
 
 const requestHandler = createRequestHandler(
   // @ts-ignore - resolved by react-router at build time
@@ -16,8 +21,8 @@ const requestHandler = createRequestHandler(
 
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext) {
-    return requestHandler(request, {
-      cloudflare: { env, ctx },
-    } as any);
+    const routerContext = new RouterContextProvider();
+    routerContext.set(cloudflareContext, { env, ctx });
+    return requestHandler(request, routerContext);
   },
 } satisfies ExportedHandler<CloudflareEnvironment>;
