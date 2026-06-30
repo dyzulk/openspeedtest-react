@@ -4,10 +4,11 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
+    "build:pages": "react-router build && node -e \"const fs = require('fs'); ['build/client/wrangler.json', 'build/server/wrangler.json'].forEach(f => fs.existsSync(f) && fs.unlinkSync(f))\"",
     "dev": "react-router dev",
     "start": "wrangler pages dev build/client",
-    "preview": "react-router build && wrangler pages dev build/client",
-    "deploy": "react-router build && wrangler pages deploy build/client",
+    "preview": "pnpm run build:pages && wrangler pages dev build/client",
+    "deploy": "pnpm run build:pages && wrangler pages deploy build/client",
     "typecheck": "react-router typegen && wrangler types --path='./functions/types.d.ts' && tsc"
   },
   "dependencies": {
