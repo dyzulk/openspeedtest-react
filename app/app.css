@@ -4,8 +4,7 @@
   --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
 }
 
-html,
-body {
+html, body {
   @apply bg-white dark:bg-[#181818] transition-colors duration-300;
   margin: 0;
   padding: 0;
@@ -14,7 +13,223 @@ body {
   width: 100vw;
 }
 
-/* Spinner Animasi Asli OpenSpeedTest */
+::-webkit-scrollbar {
+  display: none;
+}
+html {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
+/* ============================================================== */
+/* SpeedTest SVG Tailwind Styles                                  */
+/* ============================================================== */
+
+@layer components {
+  .Credits {
+    @apply text-[#7D7777] text-center text-[14px] font-medium;
+  }
+  .Credits a {
+    @apply no-underline text-[#717171] hover:text-[#14b0fe];
+  }
+
+  .ConnectError,
+  .openSpeedtestApp {
+    @apply hidden;
+  }
+
+  .openSpeedtestApp {
+    @apply h-screen w-screen overflow-hidden;
+  }
+
+  .main-Gaugebg {
+    @apply fill-none stroke-[#e7e7e8] stroke-[22px];
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 681;
+  }
+
+  .main-GaugeBlue {
+    @apply fill-none stroke-[22px];
+    stroke: url(#gradient);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 681;
+    stroke-opacity: 0;
+  }
+
+  .main-GaugeWhite {
+    @apply fill-none stroke-white stroke-[15px];
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 0, 681;
+    stroke-dashoffset: 1;
+    stroke-opacity: 0;
+  }
+
+  .oDo-Meter {
+    @apply text-[16.63px] fill-gray-500 font-medium;
+  }
+
+  .oDoLive-Speed {
+    @apply text-[28px] fill-[#201e1e] dark:fill-white font-medium text-center;
+    text-anchor: middle;
+  }
+
+  .oDoLive-Status {
+    @apply text-[10px] fill-[#d2d1d2] font-medium text-center;
+    text-anchor: middle;
+  }
+
+  .uiBg {
+    @apply fill-[#d2d1d2] dark:fill-[#333333];
+  }
+
+  .progressbg {
+    @apply stroke-[#e7e7e8] stroke-[8px];
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 0;
+  }
+
+  .Cards {
+    @apply fill-[#f2f2f2] dark:fill-[#1E1E1E];
+  }
+
+  .Symbol {
+    fill: url(#gradient);
+  }
+
+  .rtext {
+    @apply text-[12px] fill-[#333] dark:fill-white font-medium;
+  }
+
+  .rtextnum {
+    @apply text-[23px] fill-[#201e1e] dark:fill-white font-medium text-center;
+    text-anchor: middle;
+  }
+
+  .rtextmbms {
+    @apply text-[12px] fill-[#5f5f5f] font-medium text-center;
+    text-anchor: middle;
+  }
+
+  .jitter-Mob {
+    @apply text-[9px] fill-[#5f5f5f] font-medium text-center;
+    text-anchor: middle;
+  }
+
+  .startButton {
+    @apply cursor-pointer pointer-events-auto;
+    fill: url(#RadialGradient1);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .buttonTxt {
+    @apply text-[40px] fill-white font-medium text-center;
+    text-anchor: middle;
+  }
+
+  .intro-Progress {
+    @apply stroke-[#56c4fb] stroke-[8px];
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 0;
+  }
+
+  .progressElmstart {
+    @apply stroke-[#56c4fb] stroke-[8px] block;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 0;
+  }
+
+  .Startsettings {
+    @apply cursor-pointer pointer-events-auto opacity-10 transition-opacity duration-1000 hover:opacity-100;
+    fill: url(#RadialGradient1);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .deskStart {
+    @apply fill-none stroke-[22px];
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 681;
+    stroke: url(#gradient);
+  }
+
+  #UI-Desk,
+  #UI-Mob,
+  #upSymbolDesk,
+  #downSymbolDesk,
+  #upSymbolMob,
+  #downSymbolMob,
+  #ipMob,
+  #ipDesk {
+    @apply hidden;
+  }
+
+  .oDoTop-Speed {
+    @apply text-[16.96px] fill-gray-500 font-medium;
+    text-anchor: end;
+  }
+
+  #upSymbolDesk,
+  #downSymbolDesk,
+  #upSymbolMob,
+  #downSymbolMob {
+    @apply fill-[#14b0fe];
+  }
+
+  #ipMob,
+  #ipDesk {
+    @apply text-[15px] fill-[#201e1e] dark:fill-white font-medium text-center;
+    text-anchor: middle;
+  }
+
+  .darkmode {
+    @apply hidden cursor-pointer pt-[16px] -mb-[15px] mr-[30px] fill-[#75757a99] hover:fill-black dark:hover:fill-white;
+  }
+
+  #daymode {
+    @apply mr-[40px];
+  }
+
+  .Mobile,
+  .Desktop {
+    @apply invisible w-screen h-screen;
+  }
+
+  @media only screen and (orientation: landscape) {
+    .Mobile {
+      @apply hidden;
+    }
+    .Desktop {
+      @apply visible;
+    }
+  }
+
+  @media only screen and (orientation: portrait) {
+    .Mobile {
+      @apply visible;
+    }
+    .Desktop {
+      @apply hidden;
+    }
+    .ost-spinner {
+      top: 42vh;
+      left: 50vw;
+    }
+  }
+}
+
+/* ============================================================== */
+/* Spinner Animasi Asli OpenSpeedTest                             */
+/* ============================================================== */
+
 .ost-spinner {
   position: absolute;
   z-index: 999;
@@ -22,13 +237,6 @@ body {
   left: 50vw;
   transform: translate(-50%, -50%);
   text-align: center;
-}
-
-@media only screen and (max-width: 768px) {
-  .ost-spinner {
-    top: 42vh;
-    left: 50vw;
-  }
 }
 
 .ost-spinner > div {

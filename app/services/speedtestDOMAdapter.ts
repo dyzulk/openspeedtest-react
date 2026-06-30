@@ -18,18 +18,20 @@ export class SpeedTestDOMAdapter {
     toggleIPVisibility: () => void;
   }) {
     // Tombol Start
-    const playBtn = this.svg.getElementById("playButton");
-    if (playBtn) playBtn.onclick = callbacks.startTest;
+    const startDesk = this.svg.getElementById("startButtonDesk") as SVGElement | null;
+    const startMob = this.svg.getElementById("startButtonMob") as SVGElement | null;
+    if (startDesk) startDesk.onclick = callbacks.startTest;
+    if (startMob) startMob.onclick = callbacks.startTest;
 
     // Tombol Settings (IP toggle)
-    const settings = this.svg.getElementById("settings");
+    const settings = this.svg.getElementById("settings") as SVGElement | null;
     if (settings) settings.onclick = callbacks.toggleIPVisibility;
 
     // Tombol Tema (Switch Day/Night)
-    const dayMode = this.svg.getElementById("daymode");
-    const nightMode = this.svg.getElementById("nightmode");
-    const dayModeMob = this.svg.getElementById("daymode-Mob");
-    const nightModeMob = this.svg.getElementById("nightmode-Mob");
+    const dayMode = this.svg.getElementById("daymode") as SVGElement | null;
+    const nightMode = this.svg.getElementById("nightmode") as SVGElement | null;
+    const dayModeMob = this.svg.getElementById("daymode-Mob") as SVGElement | null;
+    const nightModeMob = this.svg.getElementById("nightmode-Mob") as SVGElement | null;
 
     const onThemeClick = (e: Event) => {
       e.stopPropagation();
@@ -61,10 +63,10 @@ export class SpeedTestDOMAdapter {
     if (uiMob) gsap.to(uiMob, { opacity: isTestingOrDone ? 1 : 0, duration: 0.3, display: isTestingOrDone ? "block" : "none" });
 
     // Sinkronisasi icon matahari/bulan di layar intro
-    const dayMode = this.svg.getElementById("daymode");
-    const nightMode = this.svg.getElementById("nightmode");
-    const dayModeMob = this.svg.getElementById("daymode-Mob");
-    const nightModeMob = this.svg.getElementById("nightmode-Mob");
+    const dayMode = this.svg.getElementById("daymode") as SVGElement | null;
+    const nightMode = this.svg.getElementById("nightmode") as SVGElement | null;
+    const dayModeMob = this.svg.getElementById("daymode-Mob") as SVGElement | null;
+    const nightModeMob = this.svg.getElementById("nightmode-Mob") as SVGElement | null;
 
     if (dayMode) dayMode.style.display = isDark ? "none" : "inline-block";
     if (nightMode) nightMode.style.display = isDark ? "inline-block" : "none";
@@ -76,13 +78,13 @@ export class SpeedTestDOMAdapter {
     const isUl = stage === "upload";
     const isErr = stage === "error";
 
-    const dlDesk = this.svg.getElementById("downSymbolDesk");
-    const ulDesk = this.svg.getElementById("upSymbolDesk");
-    const errDesk = this.svg.getElementById("ConnectErrorDesk");
+    const dlDesk = this.svg.getElementById("downSymbolDesk") as SVGElement | null;
+    const ulDesk = this.svg.getElementById("upSymbolDesk") as SVGElement | null;
+    const errDesk = this.svg.getElementById("ConnectErrorDesk") as SVGElement | null;
 
-    const dlMob = this.svg.getElementById("downSymbolMob");
-    const ulMob = this.svg.getElementById("upSymbolMob");
-    const errMob = this.svg.getElementById("ConnectErrorMob");
+    const dlMob = this.svg.getElementById("downSymbolMob") as SVGElement | null;
+    const ulMob = this.svg.getElementById("upSymbolMob") as SVGElement | null;
+    const errMob = this.svg.getElementById("ConnectErrorMob") as SVGElement | null;
 
     if (dlDesk) dlDesk.style.display = isDl ? "block" : "none";
     if (ulDesk) ulDesk.style.display = isUl ? "block" : "none";
@@ -160,8 +162,8 @@ export class SpeedTestDOMAdapter {
     if (statusText) statusText.textContent = state.statusText;
 
     // IP Address
-    const ipDesk = this.svg.getElementById("ipDesk");
-    const ipMob = this.svg.getElementById("ipMob");
+    const ipDesk = this.svg.getElementById("ipDesk") as SVGElement | null;
+    const ipMob = this.svg.getElementById("ipMob") as SVGElement | null;
     const ipElements = [ipDesk, ipMob].filter(Boolean);
 
     ipElements.forEach((el) => {
