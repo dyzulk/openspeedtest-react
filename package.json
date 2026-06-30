@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
-    "build:pages": "react-router build && node -e \"const fs = require('fs'); ['build/client/wrangler.json', 'build/server/wrangler.json'].forEach(f => fs.existsSync(f) && fs.unlinkSync(f))\"",
+    "build:pages": "react-router build && node -e \"const fs = require('fs'); ['build/client/wrangler.json', 'build/server/wrangler.json'].forEach(f => fs.existsSync(f) && fs.unlinkSync(f)); if (fs.existsSync('.wrangler')) fs.rmSync('.wrangler', { recursive: true, force: true })\"",
     "dev": "react-router dev",
     "start": "wrangler pages dev build/client",
     "preview": "pnpm run build:pages && wrangler pages dev build/client",
