@@ -16,6 +16,12 @@ export const links: Route.LinksFunction = () => [
     rel: "stylesheet",
     href: "https://fonts.bunny.net/css?family=roboto:400,500,700&display=swap",
   },
+  { rel: "apple-touch-icon", sizes: "180x180", href: "/assets/images/icons/apple-touch-icon.png" },
+  { rel: "icon", type: "image/png", sizes: "32x32", href: "/assets/images/icons/favicon-32x32.png" },
+  { rel: "icon", type: "image/png", sizes: "16x16", href: "/assets/images/icons/favicon-16x16.png" },
+  { rel: "manifest", href: "/assets/images/icons/site.webmanifest" },
+  { rel: "mask-icon", href: "/assets/images/icons/safari-pinned-tab.svg", color: "#5bbad5" },
+  { rel: "shortcut icon", href: "/assets/images/icons/favicon.ico" },
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -24,6 +30,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="msapplication-TileColor" content="#ffc40d" />
+        <meta name="msapplication-config" content="/assets/images/icons/browserconfig.xml" />
+        <meta name="theme-color" content="#ffffff" />
         <Meta />
         <Links />
       </head>
