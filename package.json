@@ -5,10 +5,10 @@
   "scripts": {
     "build": "react-router build",
     "dev": "react-router dev",
-    "start": "wrangler dev",
-    "preview": "react-router build && wrangler pages dev",
-    "deploy": "wrangler deploy",
-    "typecheck": "react-router typegen && tsc"
+    "start": "wrangler pages dev build/client",
+    "preview": "react-router build && wrangler pages dev build/client",
+    "deploy": "react-router build && wrangler pages deploy build/client",
+    "typecheck": "react-router typegen && wrangler types --path='./functions/types.d.ts' && tsc"
   },
   "dependencies": {
     "@react-router/cloudflare": "^8.1.0",
