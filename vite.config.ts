@@ -2,6 +2,7 @@ import { reactRouter } from "@react-router/dev/vite";
 import { cloudflare } from "@cloudflare/vite-plugin";
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "vite";
+import path from "path";
 
 // Force emptyOutDir to false across all Vite 8 environments to prevent assets cleaning
 const disableEmptyOutDir = () => ({
@@ -32,5 +33,9 @@ export default defineConfig({
   },
   resolve: {
     tsconfigPaths: true,
+    alias: {
+      "~": path.resolve(__dirname, "./app"),
+      "@": path.resolve(__dirname, "./app"),
+    },
   },
 });
